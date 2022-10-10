@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Unit Converter In javascript</title>
+    <style>
+        .cont {
+
+            background-image: url('https://images.pexels.com/photos/6929012/pexels-photo-6929012.jpeg?cs=srgb&dl=pexels-olya-kobruseva-6929012.jpg&fm=jpg');
+            height: 1080px;
+            width: 1920px;
+            background-size: 1920px 1080px;
+            background-repeat: no-repeat;
+
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h1#heading {
+            padding: 100px;
+            color: rgb(228, 19, 19);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #container::after {
+            opacity: -10;
+        }
+
+        #container {
+            margin: 15px auto 0px auto;
+            width: 80%;
+            text-align: center;
+            /* background-image: url("https://cdn.pixabay.com/photo/2016/07/28/04/31/math-1547018_1280.jpg"); */
+            background-color: rgb(176, 255, 255);
+            border-radius: 48px;
+            padding: 23px;
+        }
+
+        .input-div {
+            display: inline-block;
+        }
+
+        .inpt {
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            width: 200px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <h1 id="heading">Unit Converter</h1>
+        <div id="container">
+            <div class="input-div">
+                <label>feet</label>
+                <input type="Number" value="1" id="feet" placeholder="Enter number " class="inpt">
+            </div><br>
+            <div class="input-div">
+                <h1>=</h1>
+            </div><br>
+            <div class="input-div">
+                <label>inch</label>
+                <input type="Number" value="12" id="inch" placeholder="Enter number " class="inpt">
+            </div> <br>
+            <div class="input-div">
+                <h1>=</h1>
+            </div><br>
+            <div class="input-div">
+                <label>cm</label>
+                <input type="Number" value="30.48" id="cm" placeholder="Enter number " class="inpt">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var feet = document.getElementById('feet');
+    var Inch = document.getElementById('inch')
+    var cm = document.getElementById('cm');
+
+    feet.addEventListener('input', function () {
+        let f = this.value;
+        let i = f * 12;
+        inch.value = i;
+
+        let c = f * 30.48;
+        cm.value = c ;
+    });
+
+    inch.addEventListener('input', function () {
+        let i = this.value;
+        let f = i / 12;
+        if (!Number.isInteger(f)) {
+            f = f.toFixed(2);
+        }
+        feet.value = f;
+
+        let c = i * 2.54;
+        if (!Number.isInteger(c)) {
+            c = c.toFixed(2);
+        }
+        cm.value = c ;
+    });
+
+    cm.addEventListener('input', function () {
+        let c = this.value;
+        let f = c / 30.48;
+        if (!Number.isInteger(f)) {
+            f = f.toFixed(2);
+        }
+        feet.value = f;
+
+        let i = c / 2.54;
+        if (!Number.isInteger(i)) {
+            i = i.toFixed(2);
+        }
+        inch.value = i ;
+    });
+
+</script>
+
+</html>
